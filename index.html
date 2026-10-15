@@ -18,6 +18,10 @@
             sans: ['Poppins', 'sans-serif'],
           },
           colors: {
+            pinkbrand: {
+              500: '#ff4d6d',
+              600: '#e63956',
+            },
             brand: {
               50: '#fdf8f6',
               100: '#f2e8e5',
@@ -33,38 +37,63 @@
     }
   </script>
 </head>
-<body class="bg-stone-50 text-stone-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-50 text-stone-800 font-sans antialiased min-h-screen flex flex-col">
 
   <!-- Encabezado / Header -->
   <header class="bg-white border-b border-stone-200 sticky top-0 z-40 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <img src="https://i.postimg.cc/MKPf0F2W/logo-jpg.png" alt="Bordados Ailín Logo" class="w-12 h-12 rounded-full border-2 border-brand-500 object-cover">
+        <img src="https://i.postimg.cc/MKPf0F2W/logo-jpg.png" alt="Bordados Ailín Logo" class="w-12 h-12 rounded-full border-2 border-pinkbrand-500 object-cover">
         <div>
           <h1 class="text-xl font-bold text-stone-800 tracking-wide">Bordados Ailín</h1>
           <p class="text-xs text-stone-500">Hecho a mano con amor ✨</p>
         </div>
       </div>
-      <a href="https://wa.me/?text=¡Hola!%20Tengo%20una%20consulta%20sobre%20tus%20productos." target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm transition flex items-center space-x-2 shadow-sm">
-        <i class="fab fa-whatsapp text-lg"></i>
-        <span class="hidden sm:inline">Contacto</span>
-      </a>
+      
+      <!-- Iconos de Redes Sociales (Facebook e Instagram) -->
+      <div class="flex items-center space-x-2">
+        <a href="https://facebook.com/bordadosailin" target="_blank" class="w-10 h-10 bg-slate-100 hover:bg-slate-200 rounded-2xl flex items-center justify-center text-slate-700 transition shadow-sm">
+          <i class="fab fa-facebook-f text-lg"></i>
+        </a>
+        <a href="https://instagram.com/bordadosailin" target="_blank" class="w-10 h-10 bg-slate-100 hover:bg-slate-200 rounded-2xl flex items-center justify-center text-slate-700 transition shadow-sm">
+          <i class="fab fa-instagram text-lg"></i>
+        </a>
+        <a href="https://wa.me/?text=¡Hola!%20Tengo%20una%20consulta%20sobre%20tus%20productos." target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm transition flex items-center space-x-2 shadow-sm ml-2">
+          <i class="fab fa-whatsapp text-lg"></i>
+          <span class="hidden sm:inline">Contacto</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- Banner / Hero -->
-  <section class="bg-brand-50 border-b border-brand-100 py-8 px-4 text-center">
+  <section class="bg-white border-b border-stone-100 py-6 px-4 text-center">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-2xl sm:text-3xl font-bold text-stone-800 mb-2">Catálogo de Productos</h2>
-      <p class="text-stone-600 text-sm sm:text-base">Elegí tus bordados favoritos y hacé tu pedido directo por WhatsApp.</p>
+      <p class="text-stone-500 text-sm sm:text-base">Elegí tus bordados favoritos y hacé tu pedido directo por WhatsApp.</p>
     </div>
   </section>
 
+  <!-- Barra de Filtros por Categoria -->
+  <nav class="max-w-6xl mx-auto px-4 pt-6 pb-2 w-full overflow-x-auto">
+    <div class="flex items-center space-x-3 pb-2 min-w-max justify-start sm:justify-center">
+      <button onclick="filterCategory('all', this)" class="filter-btn active bg-pinkbrand-500 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition shadow-sm border border-transparent">Todas</button>
+      <button onclick="filterCategory('gorras', this)" class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-full font-semibold text-sm transition border border-slate-200 shadow-sm">Gorras y Pilusos</button>
+      <button onclick="filterCategory('remeras', this)" class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-full font-semibold text-sm transition border border-slate-200 shadow-sm">Prendas</button>
+      <button onclick="filterCategory('llaveros', this)" class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-full font-semibold text-sm transition border border-slate-200 shadow-sm">Llaveros</button>
+      <button onclick="filterCategory('escarapelas', this)" class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-full font-semibold text-sm transition border border-slate-200 shadow-sm">Escarapelas</button>
+      <button onclick="filterCategory('accesorios', this)" class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-full font-semibold text-sm transition border border-slate-200 shadow-sm">Accesorios</button>
+      <button onclick="filterCategory('cuadros', this)" class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-full font-semibold text-sm transition border border-slate-200 shadow-sm">Cuadros</button>
+      <button onclick="filterCategory('navidad', this)" class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-full font-semibold text-sm transition border border-slate-200 shadow-sm">Navidad</button>
+      <button onclick="filterCategory('talleres', this)" class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-full font-semibold text-sm transition border border-slate-200 shadow-sm">Talleres</button>
+    </div>
+  </nav>
+
   <!-- Contenido principal / Catálogo -->
-  <main class="max-w-6xl mx-auto px-4 py-10 flex-grow w-full">
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
 
     <!-- Sección Llaveros -->
-    <section class="mb-12">
+    <section class="category-section mb-12" data-category="llaveros">
       <div class="flex items-center space-x-3 mb-6">
         <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Llaveros</h3>
         <div class="flex-grow border-b border-stone-200"></div>
@@ -76,8 +105,8 @@
           <img src="https://i.postimg.cc/vgvL3jT6/llaveros-honguitos.jpg" alt="Llaveros para compartir 'honguitos'" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Llaveros para compartir 'honguitos'</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$20.000</p>
-            <button onclick="addToCart('Llaveros para compartir honguitos', 20000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$20.000</p>
+            <button onclick="addToCart('Llaveros para compartir honguitos', 20000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -89,8 +118,8 @@
           <img src="https://i.postimg.cc/KvrqFWsX/llavero-retrato-jpg.jpg" alt="Llavero de retrato" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Llavero de retrato</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$23.265</p>
-            <button onclick="addToCart('Llavero de retrato', 23265)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$23.265</p>
+            <button onclick="addToCart('Llavero de retrato', 23265)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -102,8 +131,8 @@
           <img src="https://i.postimg.cc/FKJ0FdsK/llaveros-retrato-x2-jpg.jpg" alt="Llaveros de retrato x2" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Llaveros de retrato x2</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$35.000</p>
-            <button onclick="addToCart('Llaveros de retrato x2', 35000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$35.000</p>
+            <button onclick="addToCart('Llaveros de retrato x2', 35000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -113,10 +142,10 @@
       </div>
     </section>
 
-    <!-- Sección Remeras -->
-    <section class="mb-12">
+    <!-- Sección Remeras / Prendas -->
+    <section class="category-section mb-12" data-category="remeras">
       <div class="flex items-center space-x-3 mb-6">
-        <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Remeras</h3>
+        <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Prendas</h3>
         <div class="flex-grow border-b border-stone-200"></div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -126,8 +155,8 @@
           <img src="https://i.postimg.cc/j2v73yvz/remera-nike-florcitas.jpg" alt="Remera 'Nike' con Florcitas" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Remera 'Nike' con Florcitas</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$28.000</p>
-            <button onclick="addToCart('Remera Nike con Florcitas', 28000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$28.000</p>
+            <button onclick="addToCart('Remera Nike con Florcitas', 28000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -139,8 +168,8 @@
           <img src="https://i.postimg.cc/Fz0PYCrr/remera-crop-beige.jpg" alt="Remera crop beige mind you own vibe" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Remera crop beige mind you own vibe</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$25.000</p>
-            <button onclick="addToCart('Remera crop beige mind you own vibe', 25000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$25.000</p>
+            <button onclick="addToCart('Remera crop beige mind you own vibe', 25000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -150,10 +179,10 @@
       </div>
     </section>
 
-    <!-- Sección Gorras -->
-    <section class="mb-12">
+    <!-- Sección Gorras y Pilusos -->
+    <section class="category-section mb-12" data-category="gorras">
       <div class="flex items-center space-x-3 mb-6">
-        <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Gorras</h3>
+        <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Gorras y Pilusos</h3>
         <div class="flex-grow border-b border-stone-200"></div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -163,8 +192,32 @@
           <img src="https://i.postimg.cc/tCjqqM8j/20260803-192900.jpg" alt="Gorra 'Las Malvinas son Argentinas'" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Gorra 'Las Malvinas son Argentinas'</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$25.000</p>
-            <button onclick="addToCart('Gorra Las Malvinas son Argentinas', 25000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$25.000</p>
+            <button onclick="addToCart('Gorra Las Malvinas son Argentinas', 25000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+              <i class="fas fa-cart-plus"></i>
+              <span>Agregar al pedido</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sección Escarapelas -->
+    <section class="category-section mb-12" data-category="escarapelas">
+      <div class="flex items-center space-x-3 mb-6">
+        <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Escarapelas</h3>
+        <div class="flex-grow border-b border-stone-200"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Escarapelas -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-stone-100 flex flex-col">
+          <img src="https://i.postimg.cc/zB0Hr1XV/Whats-App-Image-2026-03-27-at-17-07-49-(1).jpg" alt="Escarapelas bordadas a mano" class="w-full h-64 object-cover">
+          <div class="p-5 flex flex-col flex-grow">
+            <h4 class="font-semibold text-lg text-stone-800 mb-1">Escarapela bordada a mano</h4>
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$12.000</p>
+            <button onclick="addToCart('Escarapela bordada a mano', 12000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -175,7 +228,7 @@
     </section>
 
     <!-- Sección Accesorios -->
-    <section class="mb-12">
+    <section class="category-section mb-12" data-category="accesorios">
       <div class="flex items-center space-x-3 mb-6">
         <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Accesorios</h3>
         <div class="flex-grow border-b border-stone-200"></div>
@@ -187,8 +240,8 @@
           <img src="https://i.postimg.cc/SxvZmwj4/collar-flores-violetas-jpg.jpg" alt="Collar de flores violetas bordado" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Collar de flores violetas bordado</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$18.000</p>
-            <button onclick="addToCart('Collar de flores violetas bordado', 18000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$18.000</p>
+            <button onclick="addToCart('Collar de flores violetas bordado', 18000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -200,21 +253,8 @@
           <img src="https://i.postimg.cc/x8fGvRqp/cartera-redonda-caballo.jpg" alt="Cartera redonda bordada caballo" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Cartera redonda bordada 'Caballo'</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$32.000</p>
-            <button onclick="addToCart('Cartera redonda bordada Caballo', 32000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
-              <i class="fas fa-cart-plus"></i>
-              <span>Agregar al pedido</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Escarapelas -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-stone-100 flex flex-col">
-          <img src="https://i.postimg.cc/zB0Hr1XV/Whats-App-Image-2026-03-27-at-17-07-49-(1).jpg" alt="Escarapelas bordadas a mano" class="w-full h-64 object-cover">
-          <div class="p-5 flex flex-col flex-grow">
-            <h4 class="font-semibold text-lg text-stone-800 mb-1">Escarapela bordada a mano</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$12.000</p>
-            <button onclick="addToCart('Escarapela bordada a mano', 12000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$32.000</p>
+            <button onclick="addToCart('Cartera redonda bordada Caballo', 32000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -226,8 +266,8 @@
           <img src="https://i.postimg.cc/sxWBZG4p/Mono-rosa-fuscia.jpg" alt="Moño rosa con flores fucsias" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Moño rosa con flores fucsias</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$12.000</p>
-            <button onclick="addToCart('Moño rosa con flores fucsias', 12000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$12.000</p>
+            <button onclick="addToCart('Moño rosa con flores fucsias', 12000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -238,7 +278,7 @@
     </section>
 
     <!-- Sección Cuadros -->
-    <section class="mb-12">
+    <section class="category-section mb-12" data-category="cuadros">
       <div class="flex items-center space-x-3 mb-6">
         <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Cuadros</h3>
         <div class="flex-grow border-b border-stone-200"></div>
@@ -250,8 +290,8 @@
           <img src="https://i.postimg.cc/Y9W2XKGJ/Whats-App-Image-2026-09-09-at-15-41-29.jpg" alt="Bordado en retrato de vidrio" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Bordado en retrato de vidrio</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$50.000</p>
-            <button onclick="addToCart('Bordado en retrato de vidrio', 50000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$50.000</p>
+            <button onclick="addToCart('Bordado en retrato de vidrio', 50000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -263,8 +303,8 @@
           <img src="https://i.postimg.cc/kMHzJ6Hv/Whats-App-Image-2026-09-09-at-15-38-25-(1).jpg" alt="Retrato de madera" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Retrato de madera</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$40.000 - $45.000</p>
-            <button onclick="addToCart('Retrato de madera', 40000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$40.000 - $45.000</p>
+            <button onclick="addToCart('Retrato de madera', 40000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -275,7 +315,7 @@
     </section>
 
     <!-- Sección Navidad -->
-    <section class="mb-12">
+    <section class="category-section mb-12" data-category="navidad">
       <div class="flex items-center space-x-3 mb-6">
         <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Navidad</h3>
         <div class="flex-grow border-b border-stone-200"></div>
@@ -287,8 +327,8 @@
           <img src="https://i.postimg.cc/NGRCcJ1c/Whats-App-Image-2026-10-08-at-16-00-33.jpg" alt="Adorno navidad 'pinito'" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Adorno navidad ''pinito''</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$8.900</p>
-            <button onclick="addToCart('Adorno navidad pinito', 8900)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$8.900</p>
+            <button onclick="addToCart('Adorno navidad pinito', 8900)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -299,7 +339,7 @@
     </section>
 
     <!-- Sección Talleres -->
-    <section class="mb-12">
+    <section class="category-section mb-12" data-category="talleres">
       <div class="flex items-center space-x-3 mb-6">
         <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Talleres</h3>
         <div class="flex-grow border-b border-stone-200"></div>
@@ -311,8 +351,8 @@
           <img src="https://i.postimg.cc/FH7mKXrn/Tallerdebordados.png" alt="Taller Bordado y merienda" class="w-full h-64 object-cover">
           <div class="p-5 flex flex-col flex-grow">
             <h4 class="font-semibold text-lg text-stone-800 mb-1">Bordado y merienda</h4>
-            <p class="text-brand-700 font-bold text-xl mb-4">$15.000</p>
-            <button onclick="addToCart('Taller Bordado y merienda', 15000)" class="mt-auto w-full bg-brand-500 hover:bg-brand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
+            <p class="text-pinkbrand-500 font-bold text-xl mb-4">$15.000</p>
+            <button onclick="addToCart('Taller Bordado y merienda', 15000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
               <span>Agregar al pedido</span>
             </button>
@@ -344,7 +384,7 @@
       <div class="border-t border-stone-100 pt-4 mt-auto">
         <div class="flex justify-between items-center mb-4">
           <span class="text-stone-600 font-medium">Total estimado:</span>
-          <span class="text-2xl font-bold text-brand-700">$<span id="cart-total">0</span></span>
+          <span class="text-2xl font-bold text-pinkbrand-500">$<span id="cart-total">0</span></span>
         </div>
 
         <button onclick="sendWhatsApp()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-3 rounded-xl transition flex items-center justify-center space-x-2 shadow-sm">
@@ -355,11 +395,26 @@
     </div>
   </div>
 
-  <!-- Pie de página / Footer -->
-  <footer class="bg-stone-900 text-stone-400 py-8 px-4 text-center mt-auto border-t border-stone-800 text-sm">
-    <p class="mb-2">Bordados Ailín © 2026 - Todos los derechos reservados</p>
-    <div class="flex justify-center space-x-4">
-      <a href="https://instagram.com/bordadosailin" target="_blank" class="hover:text-white transition"><i class="fab fa-instagram text-lg"></i></a>
+  <!-- Pie de página / Footer (Estilizado como la foto) -->
+  <footer class="bg-[#0f172a] text-white py-10 px-4 text-center mt-auto">
+    <div class="max-w-4xl mx-auto flex flex-col items-center">
+      <h3 class="text-2xl font-bold text-[#f472b6] mb-4 tracking-wide">Bordados Ailín</h3>
+      
+      <div class="flex items-center justify-center space-x-6 mb-6 text-sm sm:text-base">
+        <a href="https://instagram.com/bordadosailin" target="_blank" class="flex items-center space-x-2 text-[#f472b6] hover:underline">
+          <i class="fab fa-instagram text-xl"></i>
+          <span>@bordadosailin</span>
+        </a>
+        <span class="text-slate-500">•</span>
+        <a href="https://facebook.com/bordadosailin" target="_blank" class="flex items-center space-x-2 text-[#60a5fa] hover:underline">
+          <i class="fab fa-facebook-f text-xl"></i>
+          <span>Bordados Ailín</span>
+        </a>
+      </div>
+
+      <p class="text-slate-400 text-xs sm:text-sm">
+        © 2026 Bordados Ailín. Jesús María, Córdoba, Argentina.
+      </p>
     </div>
   </footer>
 
@@ -373,13 +428,13 @@
       const btn = event.currentTarget;
       const originalText = btn.innerHTML;
       btn.innerHTML = '<i class="fas fa-check"></i> <span>¡Agregado!</span>';
-      btn.classList.remove('bg-brand-500', 'hover:bg-brand-600');
+      btn.classList.remove('bg-pinkbrand-500', 'hover:bg-pinkbrand-600');
       btn.classList.add('bg-emerald-500');
       
       setTimeout(() => {
         btn.innerHTML = originalText;
         btn.classList.remove('bg-emerald-500');
-        btn.classList.add('bg-brand-500', 'hover:bg-brand-600');
+        btn.classList.add('bg-pinkbrand-500', 'hover:bg-pinkbrand-600');
       }, 1200);
     }
 
@@ -398,7 +453,7 @@
             <div class="flex justify-between items-center bg-stone-50 p-3 rounded-xl border border-stone-100">
               <div>
                 <p class="font-medium text-stone-800 text-sm">${item.title}</p>
-                <p class="text-xs text-brand-700 font-semibold">$${item.price.toLocaleString('es-AR')}</p>
+                <p class="text-xs text-pinkbrand-500 font-semibold">$${item.price.toLocaleString('es-AR')}</p>
               </div>
               <button onclick="removeFromCart(${index})" class="text-rose-500 hover:text-rose-700 p-1.5 transition">
                 <i class="fas fa-trash-alt"></i>
@@ -439,6 +494,28 @@
       });
       message += `%0ATotal estimado: $${total.toLocaleString('es-AR')}`;
       window.open(`https://wa.me/?text=${message}`, '_blank');
+    }
+
+    // Función para filtrar categorías dinámicamente
+    function filterCategory(category, element) {
+      // Cambiar clases de los botones de filtro
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-pinkbrand-500', 'text-white', 'active', 'border-transparent');
+        btn.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
+      });
+
+      element.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
+      element.classList.add('bg-pinkbrand-500', 'text-white', 'active', 'border-transparent');
+
+      // Mostrar/ocultar secciones
+      const sections = document.querySelectorAll('.category-section');
+      sections.forEach(section => {
+        if (category === 'all' || section.getAttribute('data-category') === category) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
     }
   </script>
 </body>
