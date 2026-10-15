@@ -1,319 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bordados Ailín | Catálogo</title>
-  <style>
-    :root {
-      --primary: #d4a373;
-      --secondary: #fefae0;
-      --accent: #e76f51;
-      --dark: #333333;
-      --light: #faedcd;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fcfbf7;
-      color: var(--dark);
-    }
-    header {
-      background-color: var(--light);
-      text-align: center;
-      padding: 2rem 1rem;
-      border-bottom: 2px solid var(--primary);
-    }
-    .logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border: 3px solid var(--primary);
-    }
-    h1 {
-      margin: 0;
-      color: var(--dark);
-      font-size: 2.2rem;
-    }
-    p.subtitle {
-      margin-top: 0.5rem;
-      color: #666;
-      font-style: italic;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .section-title {
-      font-size: 1.8rem;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 0.5rem;
-      margin-top: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: var(--dark);
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    }
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .card-body {
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .card-title {
-      font-size: 1.1rem;
-      margin: 0 0 0.5rem 0;
-      font-weight: 600;
-    }
-    .card-price {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    .btn-add {
-      margin-top: auto;
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.2s;
-    }
-    .btn-add:hover {
-      background-color: #bc8a5f;
-    }
-    /* Cart Floating Button & Modal */
-    .cart-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border: none;
-      padding: 1rem 1.5rem;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      z-index: 1000;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      z-index: 1001;
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 500px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.8rem;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 0.5rem;
-    }
-    .close-btn {
-      background: #ccc;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    .send-btn {
-      background: #25d366;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <img src="https://i.postimg.cc/MKPf0F2W/logo-jpg.png" alt="Bordados Ailín Logo" class="logo" />
-    <h1>Bordados Ailín</h1>
-    <p class="subtitle">Bordados a mano personalizados & productos únicos</p>
-  </header>
-
-  <div class="container">
-    
-    <!-- Llaveros -->
-    <h2 class="section-title">Llaveros</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://i.postimg.cc/vgvL3jT6/llaveros-honguitos.jpg" alt="Llaveros para compartir 'honguitos'" />
-        <div class="card-body">
-          <h3 class="card-title">Llaveros para compartir 'honguitos'</h3>
-          <div class="card-price">$20.000</div>
-          <button class="btn-add" onclick="addToCart('Llaveros para compartir honguitos', 20000)">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://i.postimg.cc/KvrqFWsX/llavero-retrato-jpg.jpg" alt="Llavero de retrato" />
-        <div class="card-body">
-          <h3 class="card-title">Llavero de retrato</h3>
-          <div class="card-price">$23.265</div>
-          <button class="btn-add" onclick="addToCart('Llavero de retrato', 23265)">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://i.postimg.cc/FKJ0FdsK/llaveros-retrato-x2-jpg.jpg" alt="Llaveros de retrato x2" />
-        <div class="card-body">
-          <h3 class="card-title">Llaveros de retrato x2</h3>
-          <div class="card-price">$35.000</div>
-          <button class="btn-add" onclick="addToCart('Llaveros de retrato x2', 35000)">Agregar al pedido</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Remeras -->
-    <h2 class="section-title">Remeras</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://i.postimg.cc/j2v73yvz/remera-nike-florcitas.jpg" alt="Remera 'Nike' con Florcitas" />
-        <div class="card-body">
-          <h3 class="card-title">Remera 'Nike' con Florcitas</h3>
-          <div class="card-price">$28.000</div>
-          <button class="btn-add" onclick="addToCart('Remera Nike con Florcitas', 28000)">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://i.postimg.cc/Fz0PYCrr/remera-crop-beige.jpg" alt="Remera crop beige mind you own vibe" />
-        <div class="card-body">
-          <h3 class="card-title">Remera crop beige mind you own vibe</h3>
-          <div class="card-price">$25.000</div>
-          <button class="btn-add" onclick="addToCart('Remera crop beige mind you own vibe', 25000)">Agregar al pedido</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Talleres -->
-    <h2 class="section-title">Talleres</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://i.postimg.cc/FH7mKXrn/Tallerdebordados.png" alt="Taller Bordado y merienda" />
-        <div class="card-body">
-          <h3 class="card-title">Bordado y merienda</h3>
-          <div class="card-price">$15.000</div>
-          <button class="btn-add" onclick="addToCart('Taller Bordado y merienda', 15000)">Agregar al pedido</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <button class="cart-btn" onclick="openCart()">🛒 Ver Pedido (<span id="cart-count">0</span>)</button>
-
-  <div class="modal" id="cart-modal">
-    <div class="modal-content">
-      <h2>Tu Pedido</h2>
-      <div id="cart-items"></div>
-      <h3>Total: $<span id="cart-total">0</span></h3>
-      <button class="send-btn" onclick="sendWhatsApp()">Enviar pedido por WhatsApp 📲</button>
-      <button class="close-btn" onclick="closeCart()">Cerrar</button>
-    </div>
-  </div>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bordados Ailín - Tienda Oficial</title>
+  <!-- CDN CSS de Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Iconos de FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Fuentes de Google -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
   <script>
-    let cart = [];
-
-    function addToCart(title, price) {
-      cart.push({ title, price });
-      updateCart();
-      alert(title + ' se agregó al pedido.');
-    }
-
-    function updateCart() {
-      document.getElementById('cart-count').innerText = cart.length;
-      let itemsContainer = document.getElementById('cart-items');
-      itemsContainer.innerHTML = '';
-      let total = 0;
-
-      cart.forEach((item, index) => {
-        total += item.price;
-        itemsContainer.innerHTML += `
-          <div class="cart-item">
-            <span>${item.title} - $${item.price.toLocaleString('es-AR')}</span>
-            <button onclick="removeFromCart(${index})" style="background:#ff4d4d; color:white; border:none; border-radius:4px; padding:2px 6px; cursor:pointer;">X</button>
-          </div>
-        `;
-      });
-
-      document.getElementById('cart-total').innerText = total.toLocaleString('es-AR');
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCart();
-    }
-
-    function openCart() {
-      document.getElementById('cart-modal').style.display = 'flex';
-    }
-
-    function closeCart() {
-      document.getElementById('cart-modal').style.display = 'none';
-    }
-
-    function sendWhatsApp() {
-      if (cart.length === 0) {
-        alert('Tu pedido está vacío.');
-        return;
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fdf8f6',
+              100: '#f2e8e5',
+              200: '#e5d1cb',
+              500: '#d4a373',
+              600: '#bc8a5f',
+              700: '#a37148',
+              800: '#8a5832',
+            }
+          }
+        }
       }
-      let message = '¡Hola Bordados Ailín! Quisiera realizar el siguiente pedido:%0A%0A';
-      let total = 0;
-      cart.forEach(item => {
-        message += `• ${item.title} - $${item.price.toLocaleString('es-AR')}%0A`;
-        total += item.price;
-      });
-      message += `%0ATotal estimado: $${total.toLocaleString('es-AR')}`;
-      window.open(`https://wa.me/?text=${message}`, '_blank');
     }
   </script>
-</body>
-</html>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Encabezado / Header -->
+  <header class="bg-white border-b border-stone-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <img src="https://i.postimg.cc/MKPf0F2W/logo-jpg.png" alt="Bordados Ailín Logo" class="w-12 h-12 rounded-full border-2 border-brand-500 object-cover">
+        <div>
+          <h1 class="text-xl font-bold text-stone-800 tracking-wide">Bordados Ailín</h1>
+          <p class="text-xs text-stone-500">Hecho a mano con amor ✨</p>
+        </div>
+      </div>
+      <a href="https://wa.me/?text=¡Hola!%20Tengo%20una%20consulta%20sobre%20tus%20productos." target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm transition flex items-center space-x-2 shadow-sm">
+        <i class="fab me-1 fa-whatsapp text-lg"></i>
+        <span class="hidden sm:inline">Contacto</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Banner / Hero -->
+  <section class="bg-brand-50 border-b border-brand-100 py-8 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-stone-800 mb-2">Catálogo de Productos</h2>
+      <p class="text-stone-600 text-sm sm:text-base">Elegí tus bordados favoritos y hacé tu pedido directo por WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- Contenido principal / Catálogo -->
+  <main class="max-w-6xl mx-auto px-4 py-10 flex-grow w-full">
+
+    <!-- Sección Llaveros -->
+    <section class="mb-12">
+      <div class="flex items-center space-x-3 mb-6">
+        <h3 class="text-xl font-bold text-stone-800 uppercase tracking-wider">Llaveros</h3>
+        <div class="flex-grow border-b border-stone-200"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Producto 1 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-stone-100 flex flex-col">
+          <img src="https://i.postimg.cc/vgvL3jT6/llaveros-honguitos.jpg" alt="Llaveros para compartir 'honguitos'" class="w-full h-64 object-cover">
+          <div class="p-5 flex flex-col flex-grow">
+            <h4 class="font-semibold text-lg text-stone-800 mb-1">Llaveros para compartir 'honguitos'</h4>
+            <p class="text-brand
