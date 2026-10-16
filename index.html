@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -58,7 +58,7 @@
         <a href="https://instagram.com/bordadosailin" target="_blank" class="w-10 h-10 bg-slate-100 hover:bg-slate-200 rounded-2xl flex items-center justify-center text-slate-700 transition shadow-sm">
           <i class="fab fa-instagram text-lg"></i>
         </a>
-        <a href="https://wa.me/?text=¡Hola!%20Tengo%20una%20consulta%20sobre%20tus%20productos." target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm transition flex items-center space-x-2 shadow-sm ml-2">
+        <a href="https://wa.me/543525543857?text=¡Hola!%20Tengo%20una%20consulta%20sobre%20tus%20productos." target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm transition flex items-center space-x-2 shadow-sm ml-2">
           <i class="fab fa-whatsapp text-lg"></i>
           <span class="hidden sm:inline">Contacto</span>
         </a>
@@ -113,11 +113,11 @@
           </div>
         </div>
 
-        <!-- Llavero 1 -->
+        <!-- Llavero Honguitos (Imagen en Alta Calidad HD) -->
         <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-stone-100 flex flex-col">
-          <img src="https://i.postimg.cc/vgvL3jT6/llaveros-honguitos.jpg" alt="Llaveros para compartir 'honguitos'" class="w-full h-64 object-cover cursor-pointer hover:opacity-95 transition" onclick="openProductModal('Llaveros para compartir \'honguitos\'', '$20.000', 20000, 'https://i.postimg.cc/vgvL3jT6/llaveros-honguitos.jpg', 'Hermosos llaveros bordados a mano ideales para regalar o compartir.')">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" alt="Llaveros para compartir 'honguitos'" class="w-full h-64 object-cover object-center cursor-pointer hover:opacity-95 transition" onclick="openProductModal('Llaveros para compartir \'honguitos\'', '$20.000', 20000, 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=85', 'Hermosos llaveros bordados a mano ideales para regalar o compartir.')">
           <div class="p-5 flex flex-col flex-grow">
-            <h4 class="font-semibold text-lg text-stone-800 mb-1 cursor-pointer hover:text-pinkbrand-500 transition" onclick="openProductModal('Llaveros para compartir \'honguitos\'', '$20.000', 20000, 'https://i.postimg.cc/vgvL3jT6/llaveros-honguitos.jpg', 'Hermosos llaveros bordados a mano ideales para regalar o compartir.')">Llaveros para compartir 'honguitos'</h4>
+            <h4 class="font-semibold text-lg text-stone-800 mb-1 cursor-pointer hover:text-pinkbrand-500 transition" onclick="openProductModal('Llaveros para compartir \'honguitos\'', '$20.000', 20000, 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=85', 'Hermosos llaveros bordados a mano ideales para regalar o compartir.')">Llaveros para compartir 'honguitos'</h4>
             <p class="text-pinkbrand-500 font-bold text-xl mb-4">$20.000</p>
             <button onclick="addToCart('Llaveros para compartir honguitos', 20000)" class="mt-auto w-full bg-pinkbrand-500 hover:bg-pinkbrand-600 text-white font-medium py-2.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2">
               <i class="fas fa-cart-plus"></i>
@@ -430,7 +430,7 @@
       <button onclick="closeProductModal()" class="absolute top-3 right-3 bg-white/80 hover:bg-white text-stone-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-xl z-10 shadow transition">&times;</button>
       
       <div class="overflow-y-auto">
-        <img id="modal-img" src="" alt="" class="w-full h-80 object-cover">
+        <img id="modal-img" src="" alt="" class="w-full h-80 object-cover object-center">
         <div class="p-6">
           <h3 id="modal-title" class="text-2xl font-bold text-stone-800 mb-1"></h3>
           <p id="modal-price" class="text-pinkbrand-500 font-bold text-2xl mb-3"></p>
@@ -576,7 +576,7 @@
         total += item.price;
       });
       message += `%0ATotal estimado: $${total.toLocaleString('es-AR')}`;
-      window.open(`https://wa.me/?text=${message}`, '_blank');
+      window.open(`https://wa.me/543525543857?text=${message}`, '_blank');
     }
 
     function filterCategory(category, element) {
